@@ -63,7 +63,7 @@ app.put("/repositories/:id", validateId, checkRepositoryInArray, (request, respo
 });
 
 app.delete("/repositories/:id", validateId, checkRepositoryInArray, (request, response) => {
-  repositories.splice(repositories.findIndex((r => r == request.repository), 1));
+  repositories.splice(repositories.findIndex(r => r === request.repository), 1);
 
   return response.status(204).json({ message: "Repository removed."})
 
